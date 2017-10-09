@@ -211,6 +211,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.disable_rescue=true
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # In case you are absolutely sure about this, create the file
