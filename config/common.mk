@@ -205,3 +205,6 @@ DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
 # In case you are absolutely sure about this, create the file
 -include $(CUSTOM_VENDOR_DIR)/config/partner_gms.mk
+
+# GSans font
+include $(CUSTOM_VENDOR_DIR)/config/fonts.mk
