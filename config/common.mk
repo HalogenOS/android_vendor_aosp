@@ -203,7 +203,12 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.disable_rescue=true
+    persist.sys.disable_rescue=true \
+    ro.boot.vendor.overlay.theme=com.potato.overlay.lawnconf
+
+# Lawnchair Default Configuration
+PRODUCT_PACKAGES += \
+    LawnConf
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
