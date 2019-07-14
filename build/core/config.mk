@@ -15,6 +15,8 @@
 # limitations under the License.
 
 BUILD_RRO_SYSTEM_PACKAGE := $(CUSTOM_VENDOR_DIR)/build/core/system_rro.mk
+# To exclude lineage-specific things without deleting everything
+PRODUCT_IS_LINEAGE := false
 
 # Rules for QCOM targets
 include $(CUSTOM_VENDOR_DIR)/build/core/qcom_target.mk
