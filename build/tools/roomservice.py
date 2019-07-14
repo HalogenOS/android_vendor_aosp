@@ -2,6 +2,7 @@
 # Copyright (C) 2012-2013, The CyanogenMod Project
 # Copyright (C) 2012-2015, SlimRoms Project
 # Copyright (C) 2016-2017, AOSiP
+# Copyright (C) 2019, The halogenOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -43,11 +44,11 @@ except ImportError:
 DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
-custom_local_manifest = ".repo/local_manifests/pixel.xml"
-custom_default_revision = "pie"
+custom_local_manifest = ".repo/local_manifests/xos.xml"
+custom_default_revision = "XOS-9.0"
 custom_dependencies = "aosp.dependencies"
-org_manifest = "pixel-devices"  # leave empty if org is provided in manifest
-org_display = "PixelExperience-Devices"  # needed for displaying
+org_manifest = "XOS"  # leave empty if org is provided in manifest
+org_display = "halogenOS"  # needed for displaying
 
 github_auth = None
 
@@ -178,7 +179,7 @@ def add_to_manifest(repos, fallback_branch=None):
             print('already exists: %s' % repo_path)
             continue
 
-        print('Adding dependency:\nRepository: %s\nBranch: %s\nRemote: %s\nPath: %s\n' % (repo_name, repo_branch,repo_remote, repo_path))
+        print('Adding dependency:\nRepository: %s\nBranch: %s\nRemote: %s\nPath: %s\n' % (repo_name, repo_branch, repo_remote, repo_path))
 
         project = ElementTree.Element(
             "project",
@@ -263,9 +264,8 @@ def detect_revision(repo):
     the branch name if using a different revision
     """
     print("Checking branch info")
-    githubreq = urllib.request.Request(
-        repo['branches_url'].replace('{/branch}', ''))
-    add_auth(githubreq)
+    githubreq = urllib.request.Request("https://git.halogenos.org/api/v1/repos/{0}/branches".format(repo['full_name']))
+
     result = json.loads(urllib.request.urlopen(githubreq).read().decode())
 
     calc_revision = get_revision()
@@ -316,11 +316,10 @@ def main():
         sys.exit()
 
     print("Device {0} not found. Attempting to retrieve device repository from "
-          "{1} Github (http://github.com/{1}).".format(device, org_display))
+          "{1} Git (http://git.halogenos.org/{1}).".format(device, org_display))
 
     githubreq = urllib.request.Request(
-        "https://api.github.com/search/repositories?"
-        "q={0}+user:{1}+in:name+fork:true".format(device, org_display))
+        "https://git.halogenos.org/api/v1/repos/search?q={0}&uid=2&private=false&mode=source&exclusive=true".format(device))
     add_auth(githubreq)
 
     repositories = []
@@ -333,19 +332,19 @@ def main():
     except ValueError:
         print("Failed to parse return data from GitHub")
         sys.exit()
-    for res in result.get('items', []):
+    for res in result.get('data', []):
         repositories.append(res)
 
     for repository in repositories:
         repo_name = repository['name']
 
-        if not (repo_name.startswith("device_") and
+        if not (repo_name.startswith("android_device_") and
                 repo_name.endswith("_" + device)):
             continue
         print("Found repository: %s" % repository['name'])
 
         fallback_branch = detect_revision(repository)
-        manufacturer = repo_name[7:-(len(device)+1)]
+        manufacturer = repo_name[len('android_device_'):-(len(device)+1)]
         repo_path = "device/%s/%s" % (manufacturer, device)
         adding = [{'repository': repo_name, 'target_path': repo_path}]
 
