@@ -17,6 +17,11 @@ on boot
     # Persistent properties (only created if persist exists)
     mkdir /persist/properties 0770 system system
 
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
+
 # sysinit (/system/etc/init.d)
 service sysinit /system/bin/sysinit
     user root
