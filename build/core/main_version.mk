@@ -2,6 +2,12 @@ CUSTOM_BUILD_TYPE ?= UNOFFICIAL
 CUSTOM_ROM_NAME := halogenOS
 CUSTOM_ROM_PREFIX := XOS
 
+# Build fingerprint
+ifneq ($(BUILD_FINGERPRINT),)
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+endif
+
 CUSTOM_BUILD_DATE := $(shell date "+%Y%m%d-%H%M%S-%Z")
 CUSTOM_BUILD_DATE_UTC := $(shell date -u "+%Y%m%d-%H%M%S")
 
