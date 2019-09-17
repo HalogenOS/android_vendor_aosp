@@ -45,15 +45,12 @@ restore_addon_d() {
 
 # Proceed only if /system is the expected major and minor version
 check_prereq() {
-# If there is no build.prop file the partition is probably empty.
-if [ ! -r /system/build.prop ]; then
-    return 0
-fi
+  # If there is no build.prop file the partition is probably empty.
+  if [ ! -r /system/build.prop ]; then
+      return 0
+  fi
 
-grep -q "^ro.lineage.version=$V.*" /system/build.prop && return 1
-
-echo "Not backing up files from incompatible version: $V"
-return 0
+  return 1
 }
 
 check_blacklist() {

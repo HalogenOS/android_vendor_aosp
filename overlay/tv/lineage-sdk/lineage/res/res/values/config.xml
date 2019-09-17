@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2019 The halogenOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -31,8 +32,7 @@
             7 - Sleep
             8 - Last app
             9 - Toggle split screen
-         This needs to match the enums in
-         sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
+         This needs to match the enums in DeviceKeysConstants.java.
     -->
     <integer name="config_doubleTapOnHomeBehavior">2</integer>
 

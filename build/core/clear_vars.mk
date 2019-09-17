@@ -1,4 +1,4 @@
 #
-# Lineage-specific variable clears
+# custom variable clears
 #
 LOCAL_IGNORE_SUBDIR :=
