@@ -1,5 +1,5 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit common custom stuff
+$(call inherit-product, $(CUSTOM_VENDOR_DIR)/config/common.mk)
 
 PRODUCT_SIZE := full
 

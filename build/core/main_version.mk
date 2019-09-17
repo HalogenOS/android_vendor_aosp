@@ -1,19 +1,21 @@
-# LineageOS System Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.modversion=$(LINEAGE_VERSION) \
-    ro.lineagelegal.url=https://lineageos.org/legal
+CUSTOM_BUILD_TYPE ?= UNOFFICIAL
+CUSTOM_ROM_NAME := halogenOS
+CUSTOM_ROM_PREFIX := XOS
 
-# LineageOS Platform Display Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
+CUSTOM_BUILD_DATE := $(shell date "+%Y%m%d-%H%M%S-%Z")
+CUSTOM_BUILD_DATE_UTC := $(shell date -u "+%Y%m%d-%H%M%S")
 
-# LineageOS Platform SDK Version
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.sdk=$(LINEAGE_PLATFORM_SDK_VERSION)
+CUSTOM_VERSION := XOS_$(CUSTOM_BUILD)-$(PLATFORM_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_BUILD_TYPE)
+ROM_FINGERPRINT := halogenOS/$(CUSTOM_PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(CUSTOM_BUILD_DATE)
 
-# LineageOS Platform Internal Version
+# ROM System version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.rev=$(LINEAGE_PLATFORM_REV)
+		ro.rom.name=$(CUSTOM_ROM_NAME) \
+		ro.rom.build_date=$(CUSTOM_BUILD_DATE) \
+		ro.rom.build_type=$(CUSTOM_BUILD_TYPE) \
+		ro.custom.version=$(CUSTOM_VERSION) \
+		ro.custom.build_date=$(CUSTOM_BUILD_DATE) \
+		ro.custom.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
+		ro.custom.build_type=$(CUSTOM_BUILD_TYPE) \
+		ro.custom.fingerprint=$(ROM_FINGERPRINT) \
+		ro.xos.version=$(PLATFORM_VERSION)_$(CUSTOM_BUILD_DATE)

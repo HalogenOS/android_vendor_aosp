@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The LineageOS Project
+<!-- Copyright (C) 2017-2019 The LineageOS Project
+     Copyright (C) 2019 The halogenOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,9 +16,11 @@
 -->
 
 <permissions>
-    <!-- The feature listed here coincides with the TrustInterfaceService declared as
-        part of the external lineage service init in SystemServer. If this xml isn't present
-        on the device, the service will not be published as a binder service!
-    -->
-    <feature name="org.lineageos.trust" />
+
+    <privapp-permissions package="com.android.fmradio">
+        <permission name="android.permission.ACCESS_FM_RADIO"/>
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+        <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    </privapp-permissions>
+
 </permissions>

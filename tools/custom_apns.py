@@ -21,11 +21,11 @@ from xml.dom.minidom import parseString
 def main(argv):
     reload(sys)
     sys.setdefaultencoding('utf8')
-    original_file = 'vendor/lineage/prebuilt/common/etc/apns-conf.xml'
 
-    if len(argv) == 3:
+    if len(argv) == 4:
         output_file_path = argv[1]
         custom_override_file = argv[2]
+        original_file = argv[3]
     else:
         raise ValueError("Wrong number of arguments %s" % len(argv))
 
