@@ -45,7 +45,7 @@ DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
 custom_local_manifest = ".repo/local_manifests/xos.xml"
-custom_default_revision = "XOS-9.0"
+custom_default_revision = "XOS-10.0"
 custom_dependencies = "aosp.dependencies"
 org_manifest = "XOS"  # leave empty if org is provided in manifest
 org_display = "halogenOS"  # needed for displaying
