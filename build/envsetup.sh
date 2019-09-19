@@ -83,7 +83,7 @@ function breakfast()
     target=$1
     local variant=$2
     unset LUNCH_MENU_CHOICES
-    add_lunch_combo full-eng
+
     for f in `/bin/ls vendor/aosp/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
