@@ -196,10 +196,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
-    micro_bench \
-    procmem \
-    procrank \
-    strace
+    procmem
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
