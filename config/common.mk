@@ -49,11 +49,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
-# init.d support
-PRODUCT_COPY_FILES += \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/init.d/00info:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00info \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/sysinit:$(TARGET_COPY_OUT_SYSTEM)/bin/sysinit
-
 # Copy all custom init rc files
 $(foreach f,$(wildcard $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
