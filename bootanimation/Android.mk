@@ -29,9 +29,9 @@ TARGET_GENERATED_BOOTANIMATION := $(TARGET_OUT_INTERMEDIATES)/BOOTANIMATION/boot
 $(TARGET_GENERATED_BOOTANIMATION): INTERMEDIATES := $(TARGET_OUT_INTERMEDIATES)/BOOTANIMATION
 $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	@echo "Building bootanimation.zip"
-	@rm -rf $(dir $@)
-	@mkdir -p $(dir $@)
-	$(hide) tar xfp vendor/aosp/bootanimation/bootanimation.tar -C $(INTERMEDIATES)
+	@rm -rf $(INTERMEDIATES)
+	@mkdir -p $(INTERMEDIATES)
+	$(hide) cp -R $(CUSTOM_VENDOR_DIR)/bootanimation/bootanimation/. -C $(INTERMEDIATES)/.
 	$(hide) if [ $(TARGET_SCREEN_HEIGHT) -lt $(TARGET_SCREEN_WIDTH) ]; then \
 	    IMAGEWIDTH=$(TARGET_SCREEN_HEIGHT); \
 	else \
@@ -45,7 +45,7 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	RESOLUTION="$$IMAGEWIDTH"x"$$IMAGEHEIGHT"; \
 	$$MOGRIFY -resize $$RESOLUTION $(INTERMEDIATES)/*/*.png; \
 	echo "$$IMAGEWIDTH $$IMAGEHEIGHT 60" > $(INTERMEDIATES)/desc.txt; \
-	cat vendor/aosp/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
+	cat $(CUSTOM_VENDOR_DIR)/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
 	$(hide) $(SOONG_ZIP) -L 0 -o $(TARGET_GENERATED_BOOTANIMATION) -C $(INTERMEDIATES) -D $(INTERMEDIATES)
 
 ifeq ($(TARGET_BOOTANIMATION),)
