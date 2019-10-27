@@ -31,7 +31,7 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	@echo "Building bootanimation.zip"
 	@rm -rf $(INTERMEDIATES)
 	@mkdir -p $(INTERMEDIATES)
-	$(hide) cp -R $(CUSTOM_VENDOR_DIR)/bootanimation/bootanimation/. -C $(INTERMEDIATES)/.
+	$(hide) cp -R $(CUSTOM_VENDOR_DIR)/bootanimation/bootanimation/. $(INTERMEDIATES)/.
 	$(hide) if [ $(TARGET_SCREEN_HEIGHT) -lt $(TARGET_SCREEN_WIDTH) ]; then \
 	    IMAGEWIDTH=$(TARGET_SCREEN_HEIGHT); \
 	else \
