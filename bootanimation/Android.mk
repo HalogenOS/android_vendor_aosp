@@ -33,18 +33,16 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	@mkdir -p $(INTERMEDIATES)
 	$(hide) cp -R $(CUSTOM_VENDOR_DIR)/bootanimation/bootanimation/. $(INTERMEDIATES)/.
 	$(hide) if [ $(TARGET_SCREEN_HEIGHT) -lt $(TARGET_SCREEN_WIDTH) ]; then \
-	    IMAGEWIDTH=$(TARGET_SCREEN_HEIGHT); \
-	else \
 	    IMAGEWIDTH=$(TARGET_SCREEN_WIDTH); \
+	else \
+	    IMAGEHEIGHT=$(TARGET_SCREEN_HEIGHT); \
 	fi; \
 	MOGRIFY="prebuilts/tools-lineage/${HOST_OS}-x86/bin/mogrify"; \
-	ORIGWIDTH="$$($$MOGRIFY -print %w $(INTERMEDIATES)/part0/$$(ls $(INTERMEDIATES)/part0 | head -n1))"; \
-	ORIGHEIGHT="$$($$MOGRIFY -print %h $(INTERMEDIATES)/part0/$$(ls $(INTERMEIDATES)/part0 | head -n1))"; \
-	IMAGESCALE="$$(expr $$IMAGEWIDTH / $$ORIGWIDTH)"; \
-	IMAGEHEIGHT=$$(expr $$IMAGEWIDTH * $$IMAGESCALE); \
-	RESOLUTION="$$IMAGEWIDTH"x"$$IMAGEHEIGHT"; \
+	RESOLUTION="$$IMAGEWIDTH"x"$$IMAGEHEIGHT" ; \
 	$$MOGRIFY -resize $$RESOLUTION $(INTERMEDIATES)/*/*.png; \
-	echo "$$IMAGEWIDTH $$IMAGEHEIGHT 60" > $(INTERMEDIATES)/desc.txt; \
+	NEWWIDTH="$$($$MOGRIFY -print %w $(INTERMEDIATES)/part0/$$(ls $(INTERMEDIATES)/part0 | head -n1))"; \
+	NEWHEIGHT="$$($$MOGRIFY -print %h $(INTERMEDIATES)/part0/$$(ls $(INTERMEDIATES)/part0 | head -n1))"; \
+	echo "$$NEWWIDTH $$NEWHEIGHT 60" > $(INTERMEDIATES)/desc.txt; \
 	cat $(CUSTOM_VENDOR_DIR)/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
 	$(hide) $(SOONG_ZIP) -L 0 -o $(TARGET_GENERATED_BOOTANIMATION) -C $(INTERMEDIATES) -D $(INTERMEDIATES)
 
