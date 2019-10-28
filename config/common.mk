@@ -95,7 +95,7 @@ endif
 
 # Google permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosip/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
