@@ -70,9 +70,16 @@ PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/privapp-permissions-custom-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-custom.xml \
     $(CUSTOM_VENDOR_DIR)/config/permissions/privapp-permissions-custom-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-custom.xml
 
+ifneq ($(TARGET_ENFORCE_PRIVAPP_WHITELIST),false)
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
+else
+ifeq ($(TARGET_LOG_PRIVAPP_WHITELIST_MISMATCH),true)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+	ro.control_privapp_permissions=log
+endif
+endif
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
