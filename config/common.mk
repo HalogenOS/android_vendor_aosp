@@ -223,3 +223,6 @@ DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
 # GSans font
 include $(CUSTOM_VENDOR_DIR)/config/fonts.mk
+
+# Pixel Style
+include vendor/pixelstyle/config.mk
