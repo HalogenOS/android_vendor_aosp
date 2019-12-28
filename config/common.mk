@@ -125,21 +125,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AudioFX
 
-# Berry styles
-#PRODUCT_PACKAGES += \
-#    LineageBlackTheme \
-#    LineageDarkTheme \
-#    LineageBlackAccent \
-#    LineageBlueAccent \
-#    LineageBrownAccent \
-#    LineageCyanAccent \
-#    LineageGreenAccent \
-#    LineageOrangeAccent \
-#    LineagePinkAccent \
-#    LineagePurpleAccent \
-#    LineageRedAccent \
-#    LineageYellowAccent
-
 # Extra tools
 PRODUCT_PACKAGES += \
     7z \
