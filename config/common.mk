@@ -87,8 +87,8 @@ PRODUCT_COPY_FILES += \
 # Lawnchair
 PRODUCT_PACKAGES += Lawnchair
 PRODUCT_COPY_FILES += \
-    vendor/potato/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
-    vendor/potato/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
+    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # Include AOSP audio files
 include $(CUSTOM_VENDOR_DIR)/config/aosp_audio.mk
