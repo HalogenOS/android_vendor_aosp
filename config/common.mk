@@ -204,7 +204,7 @@ DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true \
-    ro.boot.vendor.overlay.theme=com.potato.overlay.lawnconf
+    ro.boot.vendor.overlay.theme=com.android.theme.color.halogen;com.potato.overlay.lawnconf
 
 # Lawnchair Default Configuration
 PRODUCT_PACKAGES += \
