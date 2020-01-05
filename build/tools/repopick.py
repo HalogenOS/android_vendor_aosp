@@ -370,7 +370,7 @@ if __name__ == '__main__':
             local_branch = list(project_name_to_data[item['project']])[0]
             project_path = project_name_to_data[item['project']][local_branch]
             print('WARNING: Project {0} has a different branch ("{1}" != "{2}")'.format(project_path, local_branch, item['branch']))
-        elif args.ignore_missing:
+        elif args.ignore_missing or "android_device_" in item['project']:
             print('WARNING: Skipping {0} since there is no project directory for: {1}\n'.format(item['id'], item['project']))
             continue
         else:
@@ -383,7 +383,15 @@ if __name__ == '__main__':
 
         # Determine the maximum commits to check already picked changes
         check_picked_count = args.check_picked
-        branch_commits_count = int(subprocess.check_output(['git', 'rev-list', '--count', 'HEAD'], cwd=project_path))
+        try:
+            branch_commits_count = int(subprocess.check_output(['git', 'rev-list', '--count', 'HEAD'], cwd=project_path))
+        except FileNotFoundError:
+            if "android_device" in item['project']:
+                print("WARNING: could not find directory for {0}, skipping because it's a device tree".format(
+                        item['project']))
+                continue
+            else:
+                raise
         if branch_commits_count <= check_picked_count:
             check_picked_count = branch_commits_count - 1
 
