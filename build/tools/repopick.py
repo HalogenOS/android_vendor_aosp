@@ -386,7 +386,7 @@ if __name__ == '__main__':
         try:
             branch_commits_count = int(subprocess.check_output(['git', 'rev-list', '--count', 'HEAD'], cwd=project_path))
         except FileNotFoundError:
-            if "android_device" in item['project']:
+            if "android_device_" in item['project']:
                 print("WARNING: could not find directory for {0}, skipping because it's a device tree".format(
                         item['project']))
                 continue
