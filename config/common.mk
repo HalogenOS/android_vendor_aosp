@@ -125,7 +125,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ExactCalculator \
     Exchange2 \
-    Terminal
+    Terminal \
+    app_prediction
 
 # Custom packages
 PRODUCT_PACKAGES += \
