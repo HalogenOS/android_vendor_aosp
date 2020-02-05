@@ -30,8 +30,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/50-custom.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-custom.sh \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
+    $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/50-custom.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-custom.sh
 
 # OTA
 ifneq ($(TARGET_BUILD_VARIANT),user)
