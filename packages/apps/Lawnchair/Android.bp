@@ -13,7 +13,7 @@ android_app_import {
         "Launcher3",
         "Launcher3QuickStep",
     ],
-    privileged: true,
+    privileged: false,
     apk: "Lawnchair.apk",
     presigned: true,
 }
