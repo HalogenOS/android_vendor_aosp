@@ -85,10 +85,10 @@ PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/custom-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/custom-power-whitelist.xml
 
 # Lawnchair
-PRODUCT_PACKAGES += Lawnchair
+PRODUCT_PACKAGES += Lawnchair QuickstepSwitcherOverlay
 PRODUCT_COPY_FILES += \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
-    $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+    $(CUSTOM_VENDOR_DIR)/etc/permissions/privapp-permissions-ch.deletescape.lawnchair.ci.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-ch.deletescape.lawnchair.ci.xml \
+    $(CUSTOM_VENDOR_DIR)/etc/sysconfig/lawnchair-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-whitelist.xml
 
 # Include AOSP audio files
 include $(CUSTOM_VENDOR_DIR)/config/aosp_audio.mk

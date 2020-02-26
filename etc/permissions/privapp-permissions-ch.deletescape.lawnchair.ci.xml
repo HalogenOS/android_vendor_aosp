@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-This XML file declares which signature|privileged permissions should be granted to privileged
-applications on GMS or Google-branded devices.
-It allows additional grants on top of privapp-permissions-platform.xml
--->
+<?xml version="1.0" encoding="utf-8"?>
 <permissions>
     <privapp-permissions package="ch.deletescape.lawnchair.ci">
         <permission name="android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS"/>
@@ -59,6 +54,5 @@ It allows additional grants on top of privapp-permissions-platform.xml
         <permission name="android.permission.SET_WALLPAPER_HINTS"/>
         <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
         <permission name="android.permission.INTERNET"/>
-        <permission name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     </privapp-permissions>
 </permissions>
