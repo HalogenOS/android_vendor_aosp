@@ -211,6 +211,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     LawnConf
 
+PRODUCT_PACKAGES += ExactCalculator
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # In case you are absolutely sure about this, create the file
