@@ -45,6 +45,9 @@ PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
+# Filesystem
+TARGET_FS_CONFIG_GEN += $(CUSTOM_VENDOR_DIR)/config/config.fs
+
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
