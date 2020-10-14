@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-custom",
-    pkgPath: "custom/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-custom-generator",
     pkgPath: "custom/soong/generator",
     deps: [
