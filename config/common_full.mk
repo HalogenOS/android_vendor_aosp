@@ -6,3 +6,5 @@ PRODUCT_SIZE := full
 # Recorder
 PRODUCT_PACKAGES += \
     Recorder
+
+PRODUCT_PACKAGES += NavigationBarMode2ButtonOverlay
