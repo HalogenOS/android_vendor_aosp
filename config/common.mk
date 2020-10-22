@@ -163,14 +163,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Custom off-mode charger
-ifeq ($(findstring true,$(WITH_CUSTOM_CHARGER) $(WITH_LINEAGE_CHARGER)),true)
-PRODUCT_PACKAGES += \
-    custom_charger_res_images \
-    font_log.png \
-    libhealthd.custom
-endif
-
 # Filesystems tools
 PRODUCT_PACKAGES += \
     fsck.exfat \
