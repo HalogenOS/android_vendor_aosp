@@ -211,6 +211,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += ExactCalculator
 
+PRODUCT_PACKAGES += \
+	IconShapeSquareOverlay
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # In case you are absolutely sure about this, create the file
