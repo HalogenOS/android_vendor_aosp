@@ -217,7 +217,7 @@ PRODUCT_PACKAGES += ExactCalculator
 -include $(CUSTOM_VENDOR_DIR)/config/partner_gms.mk
 
 # GSans font
-include $(CUSTOM_VENDOR_DIR)/config/fonts.mk
+-include $(CUSTOM_VENDOR_DIR)/config/fonts.mk
 
 # Pixel Style
-include vendor/pixelstyle/config.mk
+-include vendor/pixelstyle/config.mk
