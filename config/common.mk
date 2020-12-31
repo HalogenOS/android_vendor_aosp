@@ -128,9 +128,10 @@ PRODUCT_PACKAGES += \
     Terminal \
     app_prediction
 
-# Custom packages
+ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
 PRODUCT_PACKAGES += \
     AudioFX
+endif
 
 # Extra tools
 PRODUCT_PACKAGES += \
