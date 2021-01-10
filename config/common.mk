@@ -90,12 +90,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/custom-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/custom-power-whitelist.xml
 
-# Lawnchair
-PRODUCT_PACKAGES += Lawnchair QuickstepSwitcherOverlay
-PRODUCT_COPY_FILES += \
-    $(CUSTOM_VENDOR_DIR)/etc/permissions/privapp-permissions-ch.deletescape.lawnchair.ci.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-ch.deletescape.lawnchair.ci.xml \
-    $(CUSTOM_VENDOR_DIR)/etc/sysconfig/lawnchair-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-whitelist.xml
-
 # Include AOSP audio files
 include $(CUSTOM_VENDOR_DIR)/config/aosp_audio.mk
 
@@ -203,14 +197,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true \
     ro.boot.vendor.overlay.theme=com.android.theme.color.halogen;com.potato.overlay.lawnconf
 
-# Lawnchair Default Configuration
-PRODUCT_PACKAGES += \
-    LawnConf
-
 PRODUCT_PACKAGES += ExactCalculator
 
 PRODUCT_PACKAGES += \
 	IconShapeSquareOverlay
+
+PRODUCT_PACKAGES += \
+	Launcher3 \
+	Launcher3QuickStep
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
