@@ -264,9 +264,11 @@ def detect_revision(repo):
     the branch name if using a different revision
     """
     print("Checking branch info")
-    githubreq = urllib.request.Request("https://git.halogenos.org/api/v1/repos/{0}/branches".format(repo['full_name']))
+    req_url = "https://git.halogenos.org/api/v1/repos/{0}/branches".format(repo['full_name'])
+    print("Request URL: %s" % req_url)
+    githubreq = urllib.request.Request(req_url)
 
-    result = json.loads(urllib.request.urlopen(githubreq).read().decode())
+    result = json.loads(urllib.request.urlopen(githubreq).read().decode('utf-8'))
 
     calc_revision = get_revision()
     print("Calculated revision: %s" % calc_revision)
