@@ -5,6 +5,7 @@ PRODUCT_SIZE := full
 
 # Recorder
 PRODUCT_PACKAGES += \
-    Recorder
+    Recorder \
+    Jelly
 
 PRODUCT_PACKAGES += NavigationBarMode2ButtonOverlay
