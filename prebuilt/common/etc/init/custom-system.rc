@@ -15,8 +15,7 @@ on boot
     mkdir /persist/properties 0770 system system
 
 on property:sys.boot_completed=1
-    # Restrict permissions to socket file
-    # to hide Magisk & co.
+    # Restrict permissions to socket file for SN bypass
     chmod 440 /proc/net/unix
 
 # bugreport is triggered by holding down volume down, volume up and power
