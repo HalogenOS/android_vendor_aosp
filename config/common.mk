@@ -204,8 +204,9 @@ PRODUCT_PACKAGES += \
 	IconShapeSquareOverlay
 
 PRODUCT_PACKAGES += \
-	Launcher3 \
-	Launcher3QuickStep
+	Lawnchair \
+	Lawnfeed \
+	LawnConf
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
