@@ -214,3 +214,6 @@ PRODUCT_PACKAGES += Launcher3
 
 # Pixel Style
 -include vendor/pixelstyle/config.mk
+
+# XOS Extras
+-include $(CUSTOM_VENDOR_DIR)/config/xos.mk
