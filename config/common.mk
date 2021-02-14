@@ -196,17 +196,14 @@ DEVICE_PACKAGE_OVERLAYS += $(CUSTOM_VENDOR_DIR)/overlay/common
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true \
-    ro.boot.vendor.overlay.theme=com.android.theme.color.halogen;com.potato.overlay.lawnconf
+    ro.boot.vendor.overlay.theme=com.android.theme.color.halogen
 
 PRODUCT_PACKAGES += ExactCalculator
 
 PRODUCT_PACKAGES += \
 	IconShapeSquareOverlay
 
-PRODUCT_PACKAGES += \
-	Lawnchair \
-	Lawnfeed \
-	LawnConf
+PRODUCT_PACKAGES += Launcher3
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
