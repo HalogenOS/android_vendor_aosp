@@ -53,7 +53,7 @@ cc_library_headers {
 soong_config_module_type {
     name: "disable_postrender_cleanup",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "customGlobalVars",
     bool_variables: ["disable_postrender_cleanup"],
     properties: ["cppflags"],
 }
@@ -191,6 +191,23 @@ needs_netd_direct_connect_rule {
 }
 
 soong_config_module_type {
+    name: "legacy_hw_disk_encryption",
+    module_type: "cc_defaults",
+    config_namespace: "customQcomVars",
+    bool_variables: ["legacy_hw_disk_encryption"],
+    properties: ["cppflags"],
+}
+
+legacy_hw_disk_encryption {
+    name: "legacy_hw_disk_encryption_defaults",
+    soong_config_variables: {
+        legacy_hw_disk_encryption: {
+            cppflags: ["-DLEGACY_HW_DISK_ENCRYPTION"],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "no_cameraserver",
     module_type: "cc_defaults",
     config_namespace: "customGlobalVars",
@@ -243,7 +260,7 @@ camera_in_mediaserver {
 soong_config_module_type {
     name: "has_memfd_backport",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "customGlobalVars",
     bool_variables: ["has_memfd_backport"],
     properties: ["cppflags"],
 }
