@@ -7,8 +7,6 @@ export C=/tmp/backupdir
 export SYSDEV="$(readlink -nf "$2")"
 export SYSFS="$3"
 
-export ADDOND_VERSION=1
-
 export ADDOND_VERSION=3
 
 # Partitions to mount for backup/restore in V3
@@ -53,7 +51,6 @@ restore_addon_d() {
   fi
 }
 
-# Proceed only if /system is the expected major and minor version
 check_prereq() {
 # If there is no build.prop file the partition is probably empty.
 if [ ! -r $S/build.prop ]; then
@@ -172,15 +169,19 @@ case "$1" in
   backup)
     mount_system
     if check_prereq; then
+      echo "Running addon.d backup..."
       mkdir -p $C
       preserve_addon_d
       run_stages pre-backup backup post-backup
+    else
+      echo "Prerequisites for addon.d backup not fulfilled"
     fi
     unmount_system
   ;;
   restore)
     mount_system
     if check_prereq; then
+      echo "Running addon.d restore..."
       run_stages pre-restore restore post-restore
       umount_extra $all_V3_partitions
       restore_addon_d
