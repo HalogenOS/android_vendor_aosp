@@ -204,6 +204,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += ExactCalculator
 
+# IORap app launch prefetching using Perfetto traces and madvise
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.iorapd.enable=true
+
 PRODUCT_PACKAGES += \
 	IconShapeSquareOverlay
 
