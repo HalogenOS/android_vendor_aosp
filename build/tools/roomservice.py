@@ -360,7 +360,7 @@ def main():
         print("Done")
         sys.exit()
 
-    print("Repository for %s not found in the %s Github repository list."
+    print("Repository for %s not found in the %s Git repository list."
           % (device, org_display))
     print("If this is in error, you may need to manually add it to your "
           "%s" % custom_local_manifest)
