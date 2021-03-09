@@ -341,7 +341,8 @@ def main():
         repo_name = repository['name']
 
         if not (repo_name.startswith("android_device_") and
-                repo_name.endswith("_" + device)):
+                (repo_name.endswith("_" + device) or
+                    repo_name.endswith("_" + device.lower()))):
             continue
         print("Found repository: %s" % repository['name'])
 
