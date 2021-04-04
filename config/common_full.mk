@@ -9,3 +9,5 @@ PRODUCT_PACKAGES += \
 	Etar
 
 PRODUCT_PACKAGES += NavigationBarMode2ButtonOverlay
+
+include $(CUSTOM_VENDOR_DIR)/config/packages.mk
