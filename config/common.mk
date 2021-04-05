@@ -209,6 +209,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += Launcher3
 
+# external/mimalloc
+PRODUCT_PACKAGES += libmimalloc_shared
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # In case you are absolutely sure about this, create the file
